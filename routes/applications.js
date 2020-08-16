@@ -88,8 +88,8 @@ function sendEmail(details, sender, receiver) {
                 return console.log(error);
             }
             console.log('NO-REPLY')
-            console.log(new Date(Date.now()).getUTCDate(), 'Message sent: %s', info.messageId);
-            console.log(new Date(Date.now()).getUTCDate(), 'Preview URL: %s', nodemailer.getTestMessageUrl(info));
+            console.log(moment().format('MMMM Do YYYY, h:mm:ss a') + " | " + 'Message sent: ', info.messageId);
+            console.log(moment().format('MMMM Do YYYY, h:mm:ss a') + " | " + 'Preview URL: ', nodemailer.getTestMessageUrl(info));
         });
     } else {
         const outputText = `Eine Bewerbung ist eingegangen!
