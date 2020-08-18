@@ -31,14 +31,14 @@ router.post('/submit', (req, res) => {
                 console.log(err, "error")
                 if (err._message == 'Candidature validation failed') {
                     res.status(422);
-                    res.json({ status: 422, message: "Bitte fülle alle Lücken." })
+                    res.json({ status: 422, message: "Bitte fülle alle erforderlichen Lücken." })
                 }
             })
     } else {
         res.status(422);
         res.json({
             status: 422,
-            message: "Bitte fülle alle Lücken.",
+            message: "Bitte fülle alle erforderlichen Lücken.",
         });
     }
 })
@@ -96,6 +96,7 @@ function sendEmail(details, sender, receiver) {
                             E-Mail-Adresse: ${details.email}
                             Name: ${details.name}
                             Nickname: ${details.name == "" ? null : details.name}
+                            Discord Name: ${details.discordName}
                             Rolle/Job: ${details.position}
                             Nachricht: ${details.message}`;
 
